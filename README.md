@@ -52,8 +52,8 @@ Screen** in Safari on iOS. The QR scanner requires camera permission and HTTPS.
 - Recommended: deploy the repository with the root `render.yaml`. The Express
   service hosts both the API and the built frontend from one public HTTPS URL.
 - Hostinger Business/Cloud: import the GitHub repository as a Node.js Web App.
-  Use `npm ci` as the install command, `npm run build` as the build command,
-  `npm start` as the start command, and
+  Use `npm ci --include=dev` as the install command, `npm run build` as the
+  build command, `npm start` as the start command, and
   `backend/dist/server.js` as the entry file when Hostinger requests one.
 - Alternative: deploy `frontend/` to Vercel and `backend/` to Railway or Render.
   Set `VITE_API_URL` to the public API URL before building the frontend and set
