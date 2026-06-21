@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { env } from "./config/env.js";
@@ -41,7 +42,9 @@ app.use("/api/reports", reportsRouter);
 
 if (env.NODE_ENV === "production") {
   const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
-  const frontendDirectory = path.resolve(currentDirectory, "../../frontend/dist");
+  const packagedFrontend = path.resolve(currentDirectory, "../public");
+  const workspaceFrontend = path.resolve(currentDirectory, "../../frontend/dist");
+  const frontendDirectory = existsSync(packagedFrontend) ? packagedFrontend : workspaceFrontend;
 
   app.use(express.static(frontendDirectory));
   app.get("*", (_req, res) => {

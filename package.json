@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
-    "build": "npm run build --workspace=frontend && npm run build --workspace=backend",
-    "start": "npm run start --workspace=backend",
+    "build": "npm run build --workspace=frontend && npm run build --workspace=backend && node scripts/prepare-deployment.mjs",
+    "start": "node dist/backend/server.js",
     "test": "npm run test --workspace=frontend && npm run test --workspace=backend",
     "lint": "npm run lint --workspace=frontend && npm run lint --workspace=backend"
   },
