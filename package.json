@@ -2,6 +2,7 @@
   "name": "event-attendance-management-system",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Enterprise event attendance management platform with React, TypeScript, Express, PostgreSQL schema, QR attendance, reporting, and analytics.",
   "workspaces": [
     "frontend",

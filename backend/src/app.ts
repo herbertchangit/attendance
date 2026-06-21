@@ -41,7 +41,7 @@ app.use("/api/reports", reportsRouter);
 
 if (env.NODE_ENV === "production") {
   const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
-  const frontendDirectory = path.resolve(currentDirectory, "../../frontend/dist");
+  const frontendDirectory = path.resolve(currentDirectory, "../frontend/dist");
 
   app.use(express.static(frontendDirectory));
   app.get("*", (_req, res) => {

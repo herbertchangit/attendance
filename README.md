@@ -54,7 +54,7 @@ Screen** in Safari on iOS. The QR scanner requires camera permission and HTTPS.
 - Hostinger Business/Cloud: import the GitHub repository as a Node.js Web App.
   Use `npm ci --include=dev` as the install command, `npm run build` as the
   build command, `npm start` as the start command, and
-  `backend/dist/server.js` as the entry file when Hostinger requests one.
+  `dist/server.js` as the entry file. Set the output directory to `dist`.
 - Alternative: deploy `frontend/` to Vercel and `backend/` to Railway or Render.
   Set `VITE_API_URL` to the public API URL before building the frontend and set
   `CORS_ORIGIN` to the public frontend origin on the backend.
