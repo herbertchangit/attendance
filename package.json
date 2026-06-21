@@ -1,0 +1,21 @@
+{
+  "name": "event-attendance-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise event attendance management platform with React, TypeScript, Express, PostgreSQL schema, QR attendance, reporting, and analytics.",
+  "scripts": {
+    "dev": "pnpm --parallel --filter frontend --filter backend dev",
+    "build": "pnpm --filter frontend build && pnpm --filter backend build",
+    "test": "pnpm --filter frontend test && pnpm --filter backend test",
+    "lint": "pnpm --filter frontend lint && pnpm --filter backend lint"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
