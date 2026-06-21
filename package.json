@@ -3,20 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "description": "Enterprise event attendance management platform with React, TypeScript, Express, PostgreSQL schema, QR attendance, reporting, and analytics.",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "pnpm --parallel --filter frontend --filter backend dev",
-    "build": "pnpm --filter frontend build && pnpm --filter backend build",
-    "start": "pnpm --filter backend start",
-    "test": "pnpm --filter frontend test && pnpm --filter backend test",
-    "lint": "pnpm --filter frontend lint && pnpm --filter backend lint"
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "build": "npm run build --workspace=frontend && npm run build --workspace=backend",
+    "start": "npm run start --workspace=backend",
+    "test": "npm run test --workspace=frontend && npm run test --workspace=backend",
+    "lint": "npm run lint --workspace=frontend && npm run lint --workspace=backend"
   },
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "npm@10.8.2",
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=20.11.0 <21",
+    "npm": ">=10 <11"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
